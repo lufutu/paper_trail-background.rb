@@ -80,7 +80,7 @@ module PaperTrail
           version_class,
           data.merge(
             :item_id => record.id,
-            :item_type => record.class.name
+            :item_type => record.class.name.to_s
           ),
           event
         )
