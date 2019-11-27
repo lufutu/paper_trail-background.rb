@@ -75,7 +75,7 @@ module PaperTrail
     private def trigger_write(record, data, event)
       version_class = record.class.paper_trail.version_class
 
-      ActiveRecord::Base.after_transaction do
+      # ActiveRecord::Base.after_transaction do
         VersionJob.perform_async(
           version_class,
           data.merge(
@@ -84,7 +84,7 @@ module PaperTrail
           ),
           event
         )
-      end
+      # end
     end
   end
 end
