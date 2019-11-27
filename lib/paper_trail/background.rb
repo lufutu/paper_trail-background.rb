@@ -73,7 +73,7 @@ module PaperTrail
     end
 
     private def trigger_write(record, data, event)
-      version_class = record.class.paper_trail.version_class
+      version_class = record.class.paper_trail.version_class.to_s
 
       # ActiveRecord::Base.after_transaction do
         VersionJob.perform_later(
