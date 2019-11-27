@@ -76,7 +76,7 @@ module PaperTrail
       version_class = record.class.paper_trail.version_class
 
       # ActiveRecord::Base.after_transaction do
-        VersionJob.perform_async(
+        VersionJob.perform_later(
           version_class,
           data.merge(
             :item_id => record.id,
