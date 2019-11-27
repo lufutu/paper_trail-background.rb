@@ -82,7 +82,7 @@ module PaperTrail
             :item_id => record.id,
             :item_type => record.class.name.to_s
           ),
-          event
+          event.to_s
         )
       # end
     end
