@@ -78,10 +78,10 @@ module PaperTrail
       # ActiveRecord::Base.after_transaction do
         VersionJob.perform_later(
           version_class,
-          data.merge(
+          JSON.dump(data.merge(
             :item_id => record.id,
             :item_type => record.class.name.to_s
-          ).to_json,
+          )),
           event.to_s
         )
       # end
