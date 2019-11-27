@@ -81,7 +81,7 @@ module PaperTrail
           data.merge(
             :item_id => record.id,
             :item_type => record.class.name.to_s
-          ),
+          ).to_json,
           event.to_s
         )
       # end
